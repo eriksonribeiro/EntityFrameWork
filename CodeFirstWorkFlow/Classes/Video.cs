@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 
 namespace CodeFirstWorkFlow
@@ -9,6 +10,10 @@ namespace CodeFirstWorkFlow
         public String Name { get; set; }
         public DateTime ReleaseDate { get; set; }
         public byte GenreId { get; set; }
-        public byte Classification { get; set; }
+        public Genre Genre { get; set; }
+        public Classification Classification { get; set; }
+        public ICollection<Tag> Tags { get; set; }
+
     }
+
 }

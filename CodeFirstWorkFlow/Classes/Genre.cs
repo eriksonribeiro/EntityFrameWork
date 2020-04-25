@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodeFirstWorkFlow
 {
@@ -6,5 +7,6 @@ namespace CodeFirstWorkFlow
     {
         public byte Id { get; set; }
         public String Name { get; set; }
+        public ICollection<Video> Videos { get; set; }
     }
 }
