@@ -53,9 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Classification.cs" />
-    <Compile Include="Classes\Genre.cs" />
-    <Compile Include="EntityTypeConfiguration\GenreConfiguration.cs" />
+    <Compile Include="Classification.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="Migrations\202004190019093_InitialModel.cs" />
     <Compile Include="Migrations\202004190019093_InitialModel.designer.cs">
       <DependentUpon>202004190019093_InitialModel.cs</DependentUpon>
@@ -72,26 +71,11 @@
     <Compile Include="Migrations\202004190057102_AddClassificationIntoVideosTable.designer.cs">
       <DependentUpon>202004190057102_AddClassificationIntoVideosTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004252256598_AlterVideoTable.cs" />
-    <Compile Include="Migrations\202004252256598_AlterVideoTable.designer.cs">
-      <DependentUpon>202004252256598_AlterVideoTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004252308062_AlterGenreTable.cs" />
-    <Compile Include="Migrations\202004252308062_AlterGenreTable.designer.cs">
-      <DependentUpon>202004252308062_AlterGenreTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004252338132_AddTagTable.cs" />
-    <Compile Include="Migrations\202004252338132_AddTagTable.designer.cs">
-      <DependentUpon>202004252338132_AddTagTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Video.cs" />
-    <Compile Include="EntityTypeConfiguration\VideoConfiguration.cs" />
-    <Compile Include="Classes\Tag.cs" />
-    <Compile Include="Classes\VidzyContext.cs" />
-    <Compile Include="EntityTypeConfiguration\TagConfiguration.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="VidzyContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -110,17 +94,7 @@
     <EmbeddedResource Include="Migrations\202004190057102_AddClassificationIntoVideosTable.resx">
       <DependentUpon>202004190057102_AddClassificationIntoVideosTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004252256598_AlterVideoTable.resx">
-      <DependentUpon>202004252256598_AlterVideoTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004252308062_AlterGenreTable.resx">
-      <DependentUpon>202004252308062_AlterGenreTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004252338132_AddTagTable.resx">
-      <DependentUpon>202004252338132_AddTagTable.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

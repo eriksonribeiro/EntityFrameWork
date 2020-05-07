@@ -1,5 +1,5 @@
 ﻿using CodeFirstWorkFlow.Migrations;
-using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
