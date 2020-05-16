@@ -7,24 +7,14 @@ namespace Vidzy
     class Program
     {
         static void Main(string[] args)
-        {
-            var query = new Query();
-            var queryExt = new QueryExtensionMethods();
+        {           
+            //Exercise 6 - Queries with LINQ
+            ExecuteQueriesExercises.Exercise6();
 
-            query.QueryOne();
-            queryExt.QueryOneDotone();
+            //Exercise 7 - Lazy, Eager and Explicit Loading
+            ExecuteQueriesExercises.Exercise7();
 
-            query.QueryTwo();
-            queryExt.QueryTwoDotOne();
-
-            query.QueryThree();
-            queryExt.QueryThreeDotOne();
-
-            queryExt.QueryFour();
-            queryExt.QueryFive();
-            queryExt.QuerySix();
-
-
+            Console.ReadKey();
         }
     }
 }

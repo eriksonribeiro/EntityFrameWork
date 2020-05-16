@@ -52,9 +52,7 @@
     <Compile Include="EntityTypeConfigurations\GenreConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TagConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VideoConfiguration.cs" />
-    <Compile Include="Exercises\ExecuteQueriesExercises.cs" />
     <Compile Include="Classes\Genre.cs" />
-    <Compile Include="Exercises\LazyEagerExplictLoading.cs" />
     <Compile Include="Migrations\201510110310196_InitialModel.cs" />
     <Compile Include="Migrations\201510110310196_InitialModel.Designer.cs">
       <DependentUpon>201510110310196_InitialModel.cs</DependentUpon>
@@ -83,14 +81,17 @@
     <Compile Include="Migrations\201510110433495_AddTags.Designer.cs">
       <DependentUpon>201510110433495_AddTags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510130257555_DisableCascadeDeleteBetweenGenresAndVideos.cs" />
+    <Compile Include="Migrations\201510130257555_DisableCascadeDeleteBetweenGenresAndVideos.Designer.cs">
+      <DependentUpon>201510130257555_DisableCascadeDeleteBetweenGenresAndVideos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Exercises\Query.cs" />
-    <Compile Include="Exercises\QueryExtensionMethods.cs" />
     <Compile Include="Classes\Tag.cs" />
     <Compile Include="Classes\Video.cs" />
     <Compile Include="Classes\VidzyContext.cs" />
+    <Compile Include="UpdatingData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -117,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510110433495_AddTags.resx">
       <DependentUpon>201510110433495_AddTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510130257555_DisableCascadeDeleteBetweenGenresAndVideos.resx">
+      <DependentUpon>201510130257555_DisableCascadeDeleteBetweenGenresAndVideos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
