@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AcessDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="album">
+          <Key>
+            <PropertyRef Name="idalbum" />
+          </Key>
+          <Property Name="idartista" Type="int" Nullable="false" />
+          <Property Name="idalbum" Type="int" Nullable="false" />
+          <Property Name="nomealbum" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="artista">
+          <Key>
+            <PropertyRef Name="idartista" />
+          </Key>
+          <Property Name="idartista" Type="int" Nullable="false" />
+          <Property Name="nomeartista" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <Association Name="FK_IDArtista">
+          <End Role="artista" Type="Self.artista" Multiplicity="1" />
+          <End Role="album" Type="Self.album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="idartista" />
+            </Principal>
+            <Dependent Role="album">
+              <PropertyRef Name="idartista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AcessDataBaseModelStoreContainer">
+          <EntitySet Name="album" EntityType="Self.album" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="artista" EntityType="Self.artista" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_IDArtista" Association="Self.FK_IDArtista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="album" EntitySet="album" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AcessDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="album">
+          <Key>
+            <PropertyRef Name="idalbum" />
+          </Key>
+          <Property Name="idartista" Type="Int32" Nullable="false" />
+          <Property Name="idalbum" Type="Int32" Nullable="false" />
+          <Property Name="nomealbum" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="artista" Relationship="Self.FK_IDArtista" FromRole="album" ToRole="artista" />
+        </EntityType>
+        <EntityType Name="artista">
+          <Key>
+            <PropertyRef Name="idartista" />
+          </Key>
+          <Property Name="idartista" Type="Int32" Nullable="false" />
+          <Property Name="nomeartista" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="album" Relationship="Self.FK_IDArtista" FromRole="artista" ToRole="album" />
+        </EntityType>
+        <Association Name="FK_IDArtista">
+          <End Role="artista" Type="Self.artista" Multiplicity="1" />
+          <End Role="album" Type="Self.album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="idartista" />
+            </Principal>
+            <Dependent Role="album">
+              <PropertyRef Name="idartista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AcessDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="album" EntityType="Self.album" />
+          <EntitySet Name="artista" EntityType="Self.artista" />
+          <AssociationSet Name="FK_IDArtista" Association="Self.FK_IDArtista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="album" EntitySet="album" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AcessDataBaseModelStoreContainer" CdmEntityContainer="AcessDataBaseEntities">
+          <EntitySetMapping Name="album">
+            <EntityTypeMapping TypeName="AcessDataBaseModel.album">
+              <MappingFragment StoreEntitySet="album">
+                <ScalarProperty Name="idartista" ColumnName="idartista" />
+                <ScalarProperty Name="idalbum" ColumnName="idalbum" />
+                <ScalarProperty Name="nomealbum" ColumnName="nomealbum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="artista">
+            <EntityTypeMapping TypeName="AcessDataBaseModel.artista">
+              <MappingFragment StoreEntitySet="artista">
+                <ScalarProperty Name="idartista" ColumnName="idartista" />
+                <ScalarProperty Name="nomeartista" ColumnName="nomeartista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
